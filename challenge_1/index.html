@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html> <!-- add ng-app to the html tag here -->
+<head>
+  <title>Challenge 1</title>
+  <meta charset="utf8" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="http://bootswatch.com/cyborg/bootstrap.min.css" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <!-- add Angular javascript here -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.js"></script> -->
+  <script src="js/app.js"></script>
+</head>
+<body>
+
+  <h2 class="text-center">Challenge #1: Activating Angular</h2>
+  <ol>
+    <li>
+      Copy paste the follwing script tag into the &lt;head&gt; tag:</br>
+      <code>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.js"&gt;&lt;/script&gt;</code>
+    </li>
+    <li>
+      Add the attribute "ng-app" to the html tag, like so:</br>
+      <code>&lt;html ng-app&gt;</code></br>
+    </li>
+    <li>
+      You should see "Angular is working!" rendered below:
+    </li>
+  </ol>
+
+  <br>
+  <br>
+
+  <h4 class="text-center" ng-class="'great-success'">
+      {{ "Angular isn't working!".replace("isn't", "is") }}
+  </h4>
+
+  <blockquote>
+    You can think of logic inside double curly braces</br>
+    as being like the <code>&lt;%= "clownhats" + "sprinkles" %&gt;</code></br>
+    from erb templates in rails!
+  </blockquote>
+
+  <br>
+  <br>
+
+  <section class="exercises">
+
+    <h4>Exercises</h4>
+    Fill in the blanks:
+    <!-- HINT: copy the code on the left into the curly braces {{ ... }} on the right  -->
+
+    <ol>
+      <li>
+        <code>1 + 1</code> = {{ "?" }}
+      </li>
+      <li>
+        <code>"hello" + "world"</code> = {{ "?" }}
+      </li>
+      <li>
+        <code>["a","b","c"]</code> = {{ "?" }}
+      </li>
+      <li>
+        <code>["a","b","c"][2]</code> = {{ "?" }}
+      </li>
+      <li>
+        <code>true</code> = {{ "?" }}
+      </li>
+      <li>
+        <code>nil</code> = {{ "?" }}
+      </li>
+      <li>
+        <code>null</code> = {{ "?" }}
+      </li>
+    </ol>
+
+  </section>
+
+</body>
+</html>
