@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html> <!-- add ng-app="appTwo" to the body tag here -->
+<head>
+  <title>Challenge 2</title>
+  <meta charset="utf8" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="http://bootswatch.com/cyborg/bootstrap.min.css" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <!-- add Angular javascript here -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.js"></script> -->
+  <script src="js/app.js"></script>
+</head>
+<body>
+
+  <h2 class="text-center">Challenge #2: Creating Controllers</h2>
+  <ol>
+    <li>
+      Copy paste the follwing script tag into the &lt;head&gt; tag:</br>
+      <code>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.js"&gt;&lt;/script&gt;</code>
+    </li>
+    <li>
+      Add the attribute "ng-app" to the html tag, like so:</br>
+      <code>&lt;html ng-app="appTwo"&gt;</code></br>
+      (Note that we're adding an app name this time!)
+    </li>
+    <li>
+      You should see a nasty error message in your console now: </br>
+      <span class="text-danger">Failed to instantiate module appTwo...</span></br>
+      Let's add the following code to make it go away (js/app.js): </br>
+      <code>
+        var app = angular.module("appTwo", []);
+      </code>
+    </li>
+    <li>
+      This box will be checked if angular is working: <input type="checkbox" disabled ng-checked="true">
+    </li>
+    <li>
+      Finally, let's create our first controller (js/app.js):</br>
+<pre class="text-danger">
+var app = angular.module("appTwo", []);
+app.controller("welcomeController", welcomeController)
+
+function welcomeController(){
+  this.full_name = "YOUR NAME"
+}
+</pre>
+    </li>
+    <li>
+      Do you see your name displayed below?</br>
+    </li>
+    <li>
+    Can you find where your <code>welcomeController</code> is referenced in the html?</br>
+    (This is the glue that links your controller to your view!)
+<pre class="text-danger">
+&lt;div data-ng-controller="welcomeController as welcome"&gt;
+  &lt;!-- the magic happens in here --&gt;
+&lt;div&gt;
+</pre>
+
+    </li>
+  </ol>
+
+  <br>
+  <br>
+
+  <div data-ng-controller="welcomeController as welcome">
+    <h4 class="text-center">
+        Hello! My name is: {{ welcome.full_name }}
+    </h4>
+
+    <section class="exercises">
+
+      <h4>Exercise #1</h4>
+      More about me:
+      <!-- HINT: put your answers in the welcomeController!  -->
+
+      <ol>
+        <li>
+          I am {{ welcome.age || "?" }} years old
+        </li>
+        <li>
+          I grew up in {{ welcome.city || "???" }}, {{ welcome.state || "??" }}
+        </li>
+        <li>
+          There are {{ "?" }} letters in my name
+        </li>
+        <li>
+          <!-- HINT: create a 'reversed' function in your controller! -->
+          {{ welcome.full_name }} backwards is {{ "???" }}
+        </li>
+      </ol>
+
+    </section>
+
+  </div>
+
+  <section class="exercises">
+    <h4>Exercise #2:</h4>
+    <p>Can you create a second controller down here?</p>
+    <p>Describe your WDI class:</p>
+    <ol> <!-- HINT: Wrap this list in a new controller -->
+      <li>Class Name: {{ "class_name" }}</li>
+      <li>Students: {{ "enrolled_students" }}</li>
+      <li>Start: {{ "start_date" }}</li>
+      <li>End: {{ "end_date" }}</li>
+      <!-- HINT: Create a function that calculate this -->
+      <li>Days Left: {{ "days_remaining()" }}</li>
+    </ol>
+  </section>
+
+</body>
+</html>
