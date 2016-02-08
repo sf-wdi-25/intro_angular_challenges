@@ -1,0 +1,18 @@
+blockquote {
+  margin-left: 20px;
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+
+.great-success {
+  color: #FFF;
+  background-color: #77b300;
+  border-color: #77b300;
+}
+
+.exercises {
+  margin: 0 20px;
+  padding: 10px;
+  border: 1px solid gray;
+}
