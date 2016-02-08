@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html> <!-- add ng-app="appTwo" to the body tag here -->
+<html ng-app="appTwo"> <!-- add ng-app="appTwo" to the body tag here -->
 <head>
   <title>Challenge 2</title>
   <meta charset="utf8" />
@@ -10,7 +10,7 @@
   <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <!-- add Angular javascript here -->
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.js"></script>
   <script src="js/app.js"></script>
 </head>
 <body>
@@ -85,11 +85,11 @@ function welcomeController(){
           I grew up in {{ welcome.city || "???" }}, {{ welcome.state || "??" }}
         </li>
         <li>
-          There are {{ "?" }} letters in my name
+          There are {{ welcome.lettersInName() }} letters in my name
         </li>
         <li>
           <!-- HINT: create a 'reversed' function in your controller! -->
-          {{ welcome.full_name }} backwards is {{ "???" }}
+          {{ welcome.full_name }} backwards is {{ welcome.full_name_backwards() }}
         </li>
       </ol>
 
@@ -101,13 +101,12 @@ function welcomeController(){
     <h4>Exercise #2:</h4>
     <p>Can you create a second controller down here?</p>
     <p>Describe your WDI class:</p>
-    <ol> <!-- HINT: Wrap this list in a new controller -->
-      <li>Class Name: {{ "class_name" }}</li>
-      <li>Students: {{ "enrolled_students" }}</li>
-      <li>Start: {{ "start_date" }}</li>
-      <li>End: {{ "end_date" }}</li>
-      <!-- HINT: Create a function that calculate this -->
-      <li>Days Left: {{ "days_remaining()" }}</li>
+    <ol ng-controller="wdiController as wdi"> <!-- HINT: Wrap this list in a new controller -->
+      <li>Class Name: {{ wdi.class_name }}</li>
+      <li>Students: {{ wdi.enrolled_students }}</li>
+      <li>Start: {{ wdi.start_date }}</li>
+      <li>End: {{ wdi.end_date }}</li>
+      <li>Days Left: {{ wdi.days_remaining() }}</li>
     </ol>
   </section>
 
