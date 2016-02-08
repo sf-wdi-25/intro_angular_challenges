@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html> <!-- add ng-app="appThree" to the body tag here -->
+<head>
+  <title>Challenge 3</title>
+  <meta charset="utf8" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="http://bootswatch.com/cyborg/bootstrap.min.css" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <!-- add Angular javascript here -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.js"></script> -->
+  <script src="js/app.js"></script>
+</head>
+<body>
+
+  <h2 class="text-center">Challenge #3: Two-way Data Binding</h2>
+  <ol>
+    <li>
+      Copy paste the follwing script tag into the &lt;head&gt; tag:</br>
+      <code>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.js"&gt;&lt;/script&gt;</code>
+    </li>
+    <li>
+      Add the attribute "ng-app" to the html tag, like so:</br>
+      <code>&lt;html ng-app="appThree"&gt;</code>
+    </li>
+    <li>
+      You should see a nasty error message in your console now: </br>
+      <span class="text-danger">Failed to instantiate module appTwo...</span></br>
+      Let's add the following code to make it go away (js/app.js): </br>
+      <code>
+        var app = angular.module("appThree", []);
+      </code>
+    </li>
+    <li>
+      This box will be checked if angular is working: <input type="checkbox" disabled ng-checked="true">
+    </li>
+    <li>
+      You're ready to play with the input fields below.
+    </li>
+  </ol>
+
+  <br>
+  <br>
+
+  <section class="exercises">
+    <h4>Exercise #1:</h4>
+
+    <div id="change_me" data-ng-model="info">
+      <p>Here's an example of data-binding in the view:</p>
+      Name: <input type="text" data-ng-model="info.name"></br>
+      Height: <input type="number" steps="any" data-ng-model="info.height"></br>
+      <li ng-show="info.name">
+        Hello {{info.name}}!
+      </li>
+      <li ng-show="info.height">
+        You are {{info.height >= 5.6 ? "really very" : info.height + "ft" }} tall!
+      </li>
+    </div>
+
+    </br>
+    </br>
+
+    <ol>
+      <li>
+      Can you swap out ng-model for ng-controller?</br>
+           Before: <code>&lt;div id="change_me" data-ng-model="info"&gt;</code><br/>
+           After: <code>&lt;div id="change_me" data-ng-controller="infoController as info"&gt;</code></br>
+           (Make sure to also uncomment infoController in js/app.js!)
+      </li>
+      <li>
+        Before: What were <code>name</code> and <code>height</code> being attached ("bound") to?<br>
+        After: What are <code>name</code> and <code>height</code> bound to now?
+      </li>
+    </ol>
+  </section>
+
+  <section class="exercises">
+    <h4>Exercise #2:</h4>
+    <p>Instant Math!</p>
+    <p>Can you get these simple calculators to work using only a view model (ng-model)?</p>
+    <div>
+      <input type="number"> + <input type="number"> = {{ "?" }}
+    </div>
+
+    <div>
+      <input type="number"> * <input type="number"> = {{ "?" }}
+    </div>
+  </section>
+
+  <section class="exercises">
+    <h4>Exercise #3:</h4>
+    <p>Interest Calculator</p>
+    <p>Can you plug a loanController into this view to make it display the form correctly?</p>
+
+    <div> <!-- HINT: add "loanController as loan" here -->
+          <!-- DON'T MODIFY ANYTHING ELSE -->
+      <div class="form-group">
+        <label>Loan Amount:</label>
+        <input type="number" ng-model="loan.amount">
+      </div>
+
+      <div class="form-group">
+        <label>Interest Rate:</label>
+        <input type="number" step="any" ng-model="loan.apr">
+      </div>
+
+      <table>
+        <caption>${{loan.amount}} Loan, {{loan.apr}}% APR</caption>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Accrued Interest</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Month 1</th>
+            <td>${{loan.month(1).accrued_interest}}</td>
+            <td>${{loan.month(1).total_balance}}</td>
+          </tr>
+          <tr>
+            <th>Month 2</th>
+            <td>${{loan.month(2).accrued_interest}}</td>
+            <td>${{loan.month(2).total_balance}}</td>
+          </tr>
+          <tr>
+            <th>Month 12</th>
+            <td>${{loan.month(12).accrued_interest}}</td>
+            <td>${{loan.month(12).total_balance}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div> <!-- End loanController -->
+  </section>
+
+</body>
+</html>
